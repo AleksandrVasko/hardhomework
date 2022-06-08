@@ -1,16 +1,57 @@
-//создал переменную
-const num = 266219;
+let lang = 'en';
+let week = [
+    [
+        'Понедельник', 'Вторник', 'Среда',
+        'Четверг', 'Пятница', 'Суббота',
+        'Воскресенье',
+    ],
+    [
+        'Monday', 'Tuesday', 'Wednesday',
+        'Thursday', 'Friday', 'Saturday',
+        'Sunday',
+    ],
+];
 
-//вывел в консоль произведение цифр этого числа
-const newNum = num.toString().split('');
-const res = newNum.reduce((a, b) => (a * b));
-console.log(res);
+function englishDays(arr) {
+    arr.length = 0;
+    arr.push(
+        'Monday', 'Tuesday', 'Wednesday',
+        'Thursday', 'Friday', 'Saturday',
+        'Sunday');
+}
+function russianDays(arr) {
+    arr.length = 0;
+    arr.push(
+        'Понедельник', 'Вторник', 'Среда',
+        'Четверг', 'Пятница', 'Суббота',
+        'Воскресенье');
+}
 
-//возвел в степень
-const a = res ** 3;
-/*console.log(a);*/
 
-//вывел в консоль первые 2 цифры
-console.log(a.toString().slice(0, 2));
+if (lang == 'en') {
+    russianDays(week);
+    console.log(week);
+}
+else if (lang == 'ru') {
+    englishDays(week);
+    console.log(week);
+}
 
 
+switch (lang) {
+    case 'ru':
+        russianDays(week);
+        console.log(week);
+        break;
+    case 'en':
+        englishDays(week);
+        console.log(week);
+        break;
+}
+
+// Решение через многомерный массив не приходит вообще в голову
+
+
+let namePerson = prompt('Введите имя', 'Артем, Александр или другое имя');
+let result = namePerson === 'Артем' ? 'Директор' : namePerson === 'Александр' ? 'Преподаватель' : 'студент';
+console.log(result);
